@@ -16,12 +16,12 @@ app.use("/users/:userId", (req, res, next) => {
 });
 
 // TODO: return an array of users from /users in form of { data: Array }
-app.get("/users", (req, res, next) => {
+app.use("/users", (req, res, next) => {
   res.json({ data: users });
 });
 
 // TODO: Return a single state from /states/:stateCode in the form of { data: { stateCode: String, name: String } }
-app.use("states/:stateCode", (req, res, next) => {
+app.use("/states/:stateCode", (req, res, next) => {
   const { stateCode } = req.params;
   const foundState = states[stateCode];
 
